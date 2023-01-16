@@ -73,13 +73,6 @@ app.get("/weather", (req, res) => {
   });
 });
 
-app.get("/help/*", (req, res) => {
-  res.render("error", {
-    title: "Help",
-    errorMessage: "Article not found",
-    name: "Vincent Garcia",
-  });
-});
 app.get("/*", (req, res) => {
   res.render("error", {
     title: "Error",

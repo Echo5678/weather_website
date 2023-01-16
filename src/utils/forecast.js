@@ -20,7 +20,9 @@ const forecast = (latitude, longitude, callback) => {
           body.current.temperature +
           " degress out. There is a " +
           body.current.precip +
-          "% chance of rain."
+          "% chance of rain." +
+          " Feels like " +
+          body.current.feelslike
       );
     }
   });

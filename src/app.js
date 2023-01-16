@@ -4,6 +4,7 @@ const app = express();
 const hbs = require("hbs");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
+const port = process.env.PORT || 3000;
 
 //Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -18,7 +19,7 @@ hbs.registerPartials(partialsPath);
 //Setup static directory to server CSS and JS
 app.use(express.static(publicDirectoryPath));
 
-app.get("", (req, res) => {
+app.get("/", (req, res) => {
   res.render("index", {
     title: "Weather",
     name: "Vincent Garcia",
@@ -80,6 +81,6 @@ app.get("/*", (req, res) => {
     name: "Vincent Garcia",
   });
 });
-app.listen(3000, () => {
-  console.log("Server is up on port 3000.");
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}.`);
 });
